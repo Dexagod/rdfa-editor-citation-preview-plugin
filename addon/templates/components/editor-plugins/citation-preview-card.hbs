@@ -1,0 +1,44 @@
+<link rel="stylesheet" href="./citation-preview-card.css">
+<p class="u-spacer--tiny" id="citation-preview-container">
+  <label>
+    Motivate the selection with the following link: <br>
+    <Input type="text" @value={{this.referenceURL}} id="referenceURLInput" /> <br>
+    Type of motivation:
+    <select onchange={{action "setSelection" value="target.value"}}>
+      <option value="none" selected disabled hidden>
+        Select motivation type
+      </option>
+      {{#each this.selectionTypes as |item|}}
+        {{!-- {{item.[0]}}: {{item.[1]}} --}}
+        <option value={{item.value}}>{{item.label}}</option>
+      {{/each}}
+    </select>
+  </label>
+  {{#if this.selectedOption}}
+    {{#if this.referenceURL}}
+      <br>
+      <wu-button size="small" isNarrow="true" onClick={{action 'insertInCard'}} role="button">link</wu-button>
+      <br>
+    {{/if}}
+  {{/if}}
+  
+  {{#if this.quadsLoaded}}
+  foundQuads: <br>
+  {{this.foundQuads}}
+  <br>
+  <br>
+  <wu-button-group>
+    <wu-button size="small" isNarrow="true" onClick={{action 'insert'}} role="button">confirm</wu-button>
+    {{!-- <wu-button label="no" size="tiny" isLink="true" isDark="true" isNarrow="true" command="esc" commandLocation="below"
+      {onClick=(action "clearLink") role="button">no</wu-button> --}}
+  </wu-button-group>
+  {{else}}
+  <wu-button-group>
+    {{!-- <wu-button label="no" size="tiny" isLink="true" isDark="true" isNarrow="true" command="esc" commandLocation="below"
+      onClick=(action "clearLink")  role="button">no</wu-button> --}}
+  </wu-button-group>
+  {{/if}}
+
+</p>
+
+{{yield}}

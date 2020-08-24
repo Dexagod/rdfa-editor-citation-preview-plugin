@@ -1,0 +1,39 @@
+#citation-preview-container {
+  /* background-color: aquamarine; */
+  margin: 0px;
+  padding: 5px;
+  overflow-y:hidden;
+}
+
+wu-button{
+  width: 100px;
+  display: inline-block;
+  border: 1px solid black;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+}
+
+#referenceURLInput{
+  width: 98%;
+}
+
+.editor__paper [property="cito:cites"]:before {
+  content: "Link to: "attr(resource) "\A \A"attr(property) !important;
+}
+
+.editor__paper [property="cito:isAgreedWithBy"]:before {
+  content: "Link to: "attr(resource) "\A \A"attr(property) !important;
+}
+
+.editor__paper [property="cito:isDisagreedWithBy"]:before {
+  content: "Link to: "attr(resource) "\A \A"attr(property) !important;
+}
+
+.editor__paper [property="cito:isSupportedBy"]:before {
+  content: "Link to: "attr(resource) "\A \A"attr(property) !important;
+}
+
+.editor__paper [property="cito:isDiscussedBy"]:before {
+  content: "Link to: "attr(resource) "\A \A"attr(property) !important;
+}
